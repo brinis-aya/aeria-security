@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 5 * * 1"   # every Monday: new vulnerabilities in the Aeria dependencies
+
+jobs:
+  wazuh-rules:
+    name: Wazuh decoders and rules (wazuh-logtest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Well-formed XML
+        run: |
+          for f in wazuh/decoders/*.xml wazuh/rules/*.xml; do
+            python3 -c "import sys, xml.dom.minidom as m; m.parseString('<root>' + open(sys.argv[1]).read().split('-->', 1)[-1] + '</root>')" "$f"
+          done
+      - name: Start a disposable Wazuh manager (same version as the lab)
+        run: |
+          docker run -d --name wazuh wazuh/wazuh-manager:4.14.9
+          for i in $(seq 1 60); do
+            echo test | docker exec -i wazuh /var/ossec/bin/wazuh-logtest 2>&1 | grep -q "Phase 1" && break
+            sleep 5
+          done
+      - name: Replay the 15 attack scenarios
+        run: python3 scripts/test_wazuh_rules.py --container wazuh
+
+  dependencies:
+    name: Known vulnerabilities in the Aeria dependencies (OSV)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Fetch the modules
+        run: |
+          for r in aeria-iot-sensors aeria-backoffice aeria-forecast; do
+            git clone --depth 1 "https://github.com/brinis-aya/$r.git" "../$r"
+          done
+      - name: Resolve Maven dependencies
+        run: |
+          for r in aeria-iot-sensors aeria-backoffice; do
+            (cd "../$r" && mvn -B -q dependency:list -DincludeScope=runtime -DoutputFile="$PWD/../deps-$r.txt")
+          done
+      - name: Query osv.dev
+        run: |
+          python3 scripts/osv_scan.py \
+            --maven aeria-iot-sensors=../deps-aeria-iot-sensors.txt \
+            --maven aeria-backoffice=../deps-aeria-backoffice.txt \
+            --pypi aeria-forecast=../aeria-forecast/requirements.txt \
+            --out osv-report.json | tee osv-summary.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: osv-report
+          path: |
+            osv-report.json
+            osv-summary.txt

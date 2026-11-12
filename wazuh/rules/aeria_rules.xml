@@ -1,0 +1,130 @@
+<!--
+  Aeria - Wazuh rules (ids 100700-100799), mapped to MITRE ATT&CK and to the EBIOS RM scenarios
+  of docs/ebios-rm.md (SO = operational scenario).
+  Install: copy to /var/ossec/etc/rules/ on the manager, then restart it (see wazuh/README.md).
+-->
+<group name="aeria,">
+
+  <!-- ===================================================== back-office (module 4) - SO3 -->
+  <rule id="100700" level="0">
+    <decoded_as>aeria-security</decoded_as>
+    <description>Aeria back-office security event</description>
+  </rule>
+
+  <rule id="100701" level="5">
+    <if_sid>100700</if_sid>
+    <field name="aeria.event">^login_failure$</field>
+    <description>Aeria back-office: failed login for $(srcuser) from $(srcip) ($(aeria.reason))</description>
+    <mitre><id>T1110</id></mitre>
+    <group>authentication_failed,gdpr_IV_32.2,pci_dss_10.2.4,</group>
+  </rule>
+
+  <rule id="100702" level="10" frequency="5" timeframe="120">
+    <if_matched_sid>100701</if_matched_sid>
+    <same_source_ip />
+    <description>Aeria back-office: password guessing from $(srcip) (5 failures in 2 minutes)</description>
+    <mitre><id>T1110.001</id></mitre>
+    <group>authentication_failures,attack,pci_dss_11.4,</group>
+  </rule>
+
+  <rule id="100703" level="8">
+    <if_sid>100700</if_sid>
+    <field name="aeria.event">^account_locked$</field>
+    <description>Aeria back-office: account $(srcuser) locked after repeated failures (from $(srcip))</description>
+    <mitre><id>T1110</id></mitre>
+    <group>authentication_failures,</group>
+  </rule>
+
+  <rule id="100704" level="3">
+    <if_sid>100700</if_sid>
+    <field name="aeria.event">^login_success$</field>
+    <description>Aeria back-office: $(srcuser) logged in from $(srcip)</description>
+    <group>authentication_success,</group>
+  </rule>
+
+  <rule id="100705" level="12" timeframe="900">
+    <if_sid>100704</if_sid>
+    <if_matched_sid>100702</if_matched_sid>
+    <same_source_ip />
+    <description>Aeria back-office: successful login from $(srcip) right after password guessing - possible compromise</description>
+    <mitre><id>T1078</id><id>T1110.001</id></mitre>
+    <group>authentication_success,attack,</group>
+  </rule>
+
+  <rule id="100706" level="6">
+    <if_sid>100700</if_sid>
+    <field name="aeria.event">^access_denied$</field>
+    <description>Aeria back-office: $(srcuser) refused on $(aeria.method) $(url)</description>
+    <mitre><id>T1078</id></mitre>
+    <group>access_denied,</group>
+  </rule>
+
+  <rule id="100707" level="10" frequency="5" timeframe="300">
+    <if_matched_sid>100706</if_matched_sid>
+    <same_srcuser />
+    <description>Aeria back-office: $(srcuser) repeatedly tries actions beyond their role - privilege abuse attempt</description>
+    <mitre><id>T1078</id><id>T1068</id></mitre>
+    <group>access_denied,attack,</group>
+  </rule>
+
+  <!-- ===================================================== sensor data integrity (module 1) - SO1, SO2 -->
+  <rule id="100720" level="3">
+    <decoded_as>aeria-ingest</decoded_as>
+    <field name="aeria.sensor">\S+</field>
+    <description>Aeria ingestion: reading from $(aeria.sensor) rejected ($(aeria.errors))</description>
+  </rule>
+
+  <rule id="100721" level="9" frequency="8" timeframe="600">
+    <if_matched_sid>100720</if_matched_sid>
+    <same_field>aeria.sensor</same_field>
+    <description>Aeria ingestion: burst of rejected readings from $(aeria.sensor) - sensor fault or forged messages</description>
+    <mitre><id>T1565.002</id></mitre>
+    <group>data_integrity,</group>
+  </rule>
+
+  <rule id="100722" level="5">
+    <decoded_as>aeria-ingest</decoded_as>
+    <field name="aeria.topic">\S+</field>
+    <description>Aeria ingestion: malformed MQTT message on $(aeria.topic)</description>
+    <mitre><id>T1565.002</id></mitre>
+    <group>data_integrity,</group>
+  </rule>
+
+  <rule id="100723" level="10" frequency="5" timeframe="300">
+    <if_matched_sid>100722</if_matched_sid>
+    <description>Aeria ingestion: repeated malformed MQTT messages - fuzzing or injection attempt</description>
+    <mitre><id>T1565.002</id><id>T1499</id></mitre>
+    <group>data_integrity,attack,</group>
+  </rule>
+
+  <!-- ===================================================== MQTT broker - SO2 -->
+  <rule id="100740" level="0">
+    <decoded_as>aeria-mosquitto</decoded_as>
+    <description>Aeria MQTT broker event</description>
+  </rule>
+
+  <rule id="100741" level="5">
+    <if_sid>100740</if_sid>
+    <field name="aeria.client">\S+</field>
+    <description>Aeria MQTT: client $(aeria.client) refused (not authorised)</description>
+    <mitre><id>T1078</id></mitre>
+    <group>authentication_failed,</group>
+  </rule>
+
+  <rule id="100742" level="10" frequency="10" timeframe="120">
+    <if_matched_sid>100741</if_matched_sid>
+    <description>Aeria MQTT: 10 refused clients in 2 minutes - credential guessing or forged sensors</description>
+    <mitre><id>T1110</id><id>T1565.002</id></mitre>
+    <group>authentication_failures,attack,</group>
+  </rule>
+
+  <rule id="100743" level="7">
+    <if_sid>100740</if_sid>
+    <srcip negate="yes">127.0.0.1</srcip>
+    <dstport>1883</dstport>
+    <description>Aeria MQTT: clear-text connection (1883) from $(srcip) - production sensors must use TLS on 8883</description>
+    <mitre><id>T1040</id></mitre>
+    <group>policy_violation,</group>
+  </rule>
+
+</group>

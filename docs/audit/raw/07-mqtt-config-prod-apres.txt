@@ -1,0 +1,5 @@
+PASS  anonymous client refused
+PASS  wrong password refused
+PASS  sensor can publish its own topic
+PASS  sensor cannot publish as another sensor
+4 passed, 0 failed

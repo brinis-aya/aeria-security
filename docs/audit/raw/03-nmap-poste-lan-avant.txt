@@ -1,0 +1,85 @@
+# Nmap 7.95 scan initiated Thu Nov 12 20:22:27 2026 as: nmap -sV -Pn -T4 -p 1883,5432,5440,5441,5442,8081,8083,8084,8790,22,80,135,139,443,445,3389,8080,8443,9200,55000,1514,1515 -oN - 192.168.1.6
+Nmap scan report for 192.168.1.6
+Host is up (0.0046s latency).
+
+PORT      STATE    SERVICE            VERSION
+22/tcp    filtered ssh
+80/tcp    filtered http
+135/tcp   open     msrpc              Microsoft Windows RPC
+139/tcp   open     netbios-ssn        Microsoft Windows netbios-ssn
+443/tcp   open     ssl/https
+445/tcp   open     microsoft-ds?
+1514/tcp  open     fujitsu-dtcns?
+1515/tcp  open     ssl/ifor-protocol?
+1883/tcp  filtered mqtt
+3389/tcp  filtered ms-wbt-server
+5432/tcp  open     postgresql         PostgreSQL DB 9.6.0 or later
+5440/tcp  filtered unknown
+5441/tcp  filtered unknown
+5442/tcp  filtered unknown
+8080/tcp  open     http               nginx 1.27.5
+8081/tcp  filtered blackice-icecap
+8083/tcp  filtered us-srv
+8084/tcp  open     http               Apache Tomcat (language: en)
+8443/tcp  open     ssl/http           nginx
+8790/tcp  filtered unknown
+9200/tcp  open     ssl/http           Amazon OpenSearch REST API (Basic auth)
+55000/tcp open     unknown
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.95%T=SSL%I=7%D=11/12%Time=6AF6201F%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,157,"HTTP/1\.1\x20302\x20Found\r\nlocation:\x20/app/logi
+SF:n\?\r\nosd-name:\x20wazuh\.dashboard\r\nx-frame-options:\x20sameorigin\
+SF:r\ncache-control:\x20private,\x20no-cache,\x20no-store,\x20must-revalid
+SF:ate\r\nset-cookie:\x20security_authentication=;\x20Max-Age=0;\x20Expire
+SF:s=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20HttpOnly;\x20Path=/\
+SF:r\ncontent-length:\x200\r\nDate:\x20Thu,\x2012\x20Nov\x202026\x2020:22:
+SF:55\x20GMT\r\nConnection:\x20close\r\n\r\n")%r(HTTPOptions,146,"HTTP/1\.
+SF:1\x20404\x20Not\x20Found\r\nosd-name:\x20wazuh\.dashboard\r\nx-frame-op
+SF:tions:\x20sameorigin\r\ncontent-type:\x20application/json;\x20charset=u
+SF:tf-8\r\ncache-control:\x20private,\x20no-cache,\x20no-store,\x20must-re
+SF:validate\r\ncontent-length:\x2060\r\nDate:\x20Thu,\x2012\x20Nov\x202026
+SF:\x2020:22:55\x20GMT\r\nConnection:\x20close\r\n\r\n{\"statusCode\":404,
+SF:\"error\":\"Not\x20Found\",\"message\":\"Not\x20Found\"}")%r(FourOhFour
+SF:Request,1C4,"HTTP/1\.1\x20401\x20Unauthorized\r\nosd-name:\x20wazuh\.da
+SF:shboard\r\nx-frame-options:\x20sameorigin\r\ncontent-type:\x20applicati
+SF:on/json;\x20charset=utf-8\r\ncache-control:\x20private,\x20no-cache,\x2
+SF:0no-store,\x20must-revalidate\r\nset-cookie:\x20security_authentication
+SF:=;\x20Max-Age=0;\x20Expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GM
+SF:T;\x20HttpOnly;\x20Path=/\r\ncontent-length:\x2077\r\nDate:\x20Thu,\x20
+SF:12\x20Nov\x202026\x2020:22:55\x20GMT\r\nConnection:\x20close\r\n\r\n{\"
+SF:statusCode\":401,\"error\":\"Unauthorized\",\"message\":\"Authenticatio
+SF:n\x20required\"}")%r(tor-versions,1C,"HTTP/1\.1\x20400\x20Bad\x20Reques
+SF:t\r\n\r\n")%r(RTSPRequest,146,"HTTP/1\.1\x20404\x20Not\x20Found\r\nosd-
+SF:name:\x20wazuh\.dashboard\r\nx-frame-options:\x20sameorigin\r\ncontent-
+SF:type:\x20application/json;\x20charset=utf-8\r\ncache-control:\x20privat
+SF:e,\x20no-cache,\x20no-store,\x20must-revalidate\r\ncontent-length:\x206
+SF:0\r\nDate:\x20Thu,\x2012\x20Nov\x202026\x2020:23:00\x20GMT\r\nConnectio
+SF:n:\x20close\r\n\r\n{\"statusCode\":404,\"error\":\"Not\x20Found\",\"mes
+SF:sage\":\"Not\x20Found\"}");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port1515-TCP:V=7.95%T=SSL%I=7%D=11/12%Time=6AF62022%P=x86_64-pc-linux-g
+SF:nu%r(GenericLines,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20age
+SF:nt\.\x20Unable\x20to\x20add\x20agent")%r(GetRequest,39,"ERROR:\x20Inval
+SF:id\x20request\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20agent"
+SF:)%r(HTTPOptions,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20agent
+SF:\.\x20Unable\x20to\x20add\x20agent")%r(RTSPRequest,39,"ERROR:\x20Invali
+SF:d\x20request\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20agent")
+SF:%r(Help,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20agent\.\x20Un
+SF:able\x20to\x20add\x20agent")%r(SSLSessionReq,39,"ERROR:\x20Invalid\x20r
+SF:equest\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20agent")%r(Ter
+SF:minalServerCookie,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20age
+SF:nt\.\x20Unable\x20to\x20add\x20agent")%r(TLSSessionReq,39,"ERROR:\x20In
+SF:valid\x20request\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20age
+SF:nt")%r(Kerberos,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20agent
+SF:\.\x20Unable\x20to\x20add\x20agent")%r(FourOhFourRequest,39,"ERROR:\x20
+SF:Invalid\x20request\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20a
+SF:gent")%r(LPDString,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20ag
+SF:ent\.\x20Unable\x20to\x20add\x20agent")%r(LDAPSearchReq,39,"ERROR:\x20I
+SF:nvalid\x20request\x20for\x20new\x20agent\.\x20Unable\x20to\x20add\x20ag
+SF:ent")%r(SIPOptions,39,"ERROR:\x20Invalid\x20request\x20for\x20new\x20ag
+SF:ent\.\x20Unable\x20to\x20add\x20agent");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 12 20:25:19 2026 -- 1 IP address (1 host up) scanned in 172.27 seconds

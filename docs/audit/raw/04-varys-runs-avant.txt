@@ -1,0 +1,2 @@
+run 42 finished 172.21.0.0/28 {"engine": "nmap (privileged)", "note": null, "hosts_up": 4, "hosts_down": 0, "open_ports": 7, "evidence": 48, "passed": 44, "failed": 4, "regressions": 0, "alerts_sent": 0, "duration_seconds": 46.5}
+run 43 finished 192.168.1.6/32 {"engine": "nmap (privileged)", "note": null, "hosts_up": 1, "hosts_down": 0, "open_ports": 9, "evidence": 12, "passed": 8, "failed": 4, "regressions": 0, "alerts_sent": 0, "duration_seconds": 49.1}

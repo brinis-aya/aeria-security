@@ -1,0 +1,98 @@
+{
+  "collected_at": "2026-11-12T22:40:30+00:00",
+  "source": "osv.dev",
+  "modules": {
+    "aeria-iot-sensors": {
+      "ecosystem": "Maven",
+      "packages": 77,
+      "vulnerabilities": [
+        {
+          "package": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3",
+          "id": "GHSA-qv9r-c865-cp47",
+          "aliases": [
+            "CVE-2026-49844"
+          ],
+          "summary": "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.25.5",
+            "2.26.1"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.19",
+          "id": "GHSA-j9f9-w8pj-32f8",
+          "aliases": [
+            "CVE-2026-47890"
+          ],
+          "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.19",
+          "id": "GHSA-pc63-qcmh-9cmg",
+          "aliases": [
+            "CVE-2026-47884"
+          ],
+          "summary": "Spring Framework Improper Path Limitation in XsltView",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        }
+      ]
+    },
+    "aeria-backoffice": {
+      "ecosystem": "Maven",
+      "packages": 66,
+      "vulnerabilities": [
+        {
+          "package": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3",
+          "id": "GHSA-qv9r-c865-cp47",
+          "aliases": [
+            "CVE-2026-49844"
+          ],
+          "summary": "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.25.5",
+            "2.26.1"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.19",
+          "id": "GHSA-j9f9-w8pj-32f8",
+          "aliases": [
+            "CVE-2026-47890"
+          ],
+          "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.19",
+          "id": "GHSA-pc63-qcmh-9cmg",
+          "aliases": [
+            "CVE-2026-47884"
+          ],
+          "summary": "Spring Framework Improper Path Limitation in XsltView",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        }
+      ]
+    }
+  }
+}

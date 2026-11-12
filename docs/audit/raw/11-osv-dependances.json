@@ -1,0 +1,2143 @@
+{
+  "collected_at": "2026-11-12T21:16:50+00:00",
+  "source": "osv.dev",
+  "modules": {
+    "aeria-iot-sensors": {
+      "ecosystem": "Maven",
+      "packages": 77,
+      "vulnerabilities": [
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-jhq6-gfmj-v8fx",
+          "aliases": [
+            "CVE-2026-10532"
+          ],
+          "summary": "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.34"
+          ]
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-p47f-322f-whfh",
+          "aliases": [
+            "CVE-2026-9828"
+          ],
+          "summary": "QOS.CH Sarl logback logback-core has a deserialization of untrusted data vulnerability",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.33"
+          ]
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-qqpg-mvqg-649v",
+          "aliases": [
+            "CVE-2026-1225"
+          ],
+          "summary": "Logback allows an attacker to instantiate classes already present on the class path",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.25"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-72hv-8253-57qq",
+          "aliases": [
+            "CVE-2026-18401"
+          ],
+          "summary": "jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.6",
+            "2.21.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-7hhh-6rmp-j9qf",
+          "aliases": [
+            "CVE-2026-89425"
+          ],
+          "summary": "jackson-core: UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilder growth (DoS)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-p6pp-m3f8-5c89",
+          "aliases": [
+            "CVE-2026-89407"
+          ],
+          "summary": " jackson-core: ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber()",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-r7wm-3cxj-wff9",
+          "aliases": [
+            "CVE-2026-68494"
+          ],
+          "summary": "jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-3pjw-73gf-8qr5",
+          "aliases": [
+            "CVE-2026-59888"
+          ],
+          "summary": "jackson-databind: @JsonIgnore on a Record property is bypassed with a PropertyNamingStrategy",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-5gvw-p9qm-jgwh",
+          "aliases": [
+            "CVE-2026-59889"
+          ],
+          "summary": "jackson-databind: @JsonView bypassed for @JsonUnwrapped container properties on deserialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-5jmj-h7xm-6q6v",
+          "aliases": [
+            "CVE-2026-54515"
+          ],
+          "summary": "jackson-databind has case-insensitive deserialization bypasses per-property @JsonIgnoreProperties",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-cxp5-3px4-pw24",
+          "aliases": [
+            "CVE-2026-91777"
+          ],
+          "summary": "jackson-databind quadratic forward-reference completion ",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-gx83-3vf8-gh7j",
+          "aliases": [
+            "CVE-2026-83557"
+          ],
+          "summary": "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-hgj6-7826-r7m5",
+          "aliases": [
+            "CVE-2026-54514"
+          ],
+          "summary": "jackson-databind: InetSocketAddress deserialization triggers eager DNS resolution (SSRF)",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-j3rv-43j4-c7qm",
+          "aliases": [
+            "CVE-2026-54512"
+          ],
+          "summary": "jackson-databind has a PolymorphicTypeValidator bypass via generic type parameters that allows arbitrary class instantiation",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-q4xh-88c3-wmh7",
+          "aliases": [
+            "CVE-2026-68497"
+          ],
+          "summary": "jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-rmj7-2vxq-3g9f",
+          "aliases": [
+            "CVE-2026-54513"
+          ],
+          "summary": "jackson-databind has an array subtype allowlist bypass in BasicPolymorphicTypeValidator (allowIfSubTypeIsArray)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-vvgp-rfg2-7rr6",
+          "aliases": [
+            "CVE-2026-77310"
+          ],
+          "summary": "jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-wjgm-6hv5-3cvf",
+          "aliases": [
+            "CVE-2026-19032"
+          ],
+          "summary": "jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-wv8q-qhhj-9h54",
+          "aliases": [
+            "CVE-2026-91776"
+          ],
+          "summary": "jackson-databind retains every unknown raw type ID ",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "io.micrometer:micrometer-core",
+          "version": "1.15.5",
+          "id": "GHSA-g3pr-3p32-fp23",
+          "aliases": [
+            "CVE-2026-40984"
+          ],
+          "summary": "Micrometer HTTP server instrumentations DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "1.15.12",
+            "1.16.6"
+          ]
+        },
+        {
+          "package": "io.micrometer:micrometer-core",
+          "version": "1.15.5",
+          "id": "GHSA-w737-wx49-qj23",
+          "aliases": [
+            "CVE-2026-40983"
+          ],
+          "summary": "Micrometer gRPC server instrumentation DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "1.15.12",
+            "1.16.6"
+          ]
+        },
+        {
+          "package": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3",
+          "id": "GHSA-qv9r-c865-cp47",
+          "aliases": [
+            "CVE-2026-49844"
+          ],
+          "summary": "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.25.5",
+            "2.26.1"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-563x-q5rq-57qp",
+          "aliases": [
+            "BIT-tomcat-2026-24880",
+            "CVE-2026-24880"
+          ],
+          "summary": "Apache Tomcat has an HTTP Request/Response Smuggling vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.52",
+            "11.0.20",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5m62-pw8w-7w9f",
+          "aliases": [
+            "BIT-tomcat-2026-43515",
+            "CVE-2026-43515"
+          ],
+          "summary": "Apache Tomcat - Security constraints not correctly applied",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5mp6-jrq3-r938",
+          "aliases": [
+            "BIT-tomcat-2026-43513",
+            "CVE-2026-43513"
+          ],
+          "summary": "Apache Tomcat: LockOutRealm treats user names as case-sensitive",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5v3h-fjv2-54fg",
+          "aliases": [
+            "BIT-tomcat-2026-55956",
+            "CVE-2026-55956"
+          ],
+          "summary": "Apache Tomcat has an Improper Authorization vulnerability",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9m3c-qcxr-9x87",
+          "aliases": [
+            "BIT-tomcat-2026-25854",
+            "CVE-2026-25854"
+          ],
+          "summary": "Apache Tomcat has an Open Redirect vulnerability",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.53",
+            "11.0.20",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9m89-8frq-c98c",
+          "aliases": [
+            "BIT-tomcat-2026-43514",
+            "CVE-2026-43514"
+          ],
+          "summary": "Apache Tomcat - AJP secret compared in non-constant time",
+          "severity": "LOW",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9xv2-5v5q-p794",
+          "aliases": [
+            "BIT-tomcat-2026-65905",
+            "CVE-2026-65905"
+          ],
+          "summary": "Apache Tomcat's DIGEST authenticator has an Authentication Bypass by Capture-replay vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-fpj8-gq4v-p354",
+          "aliases": [
+            "BIT-tomcat-2025-66614",
+            "CVE-2025-66614"
+          ],
+          "summary": "Apache Tomcat - Client certificate verification bypass",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.50",
+            "11.0.15",
+            "9.0.113"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-fv25-8xcx-gqjc",
+          "aliases": [
+            "BIT-tomcat-2026-42498",
+            "CVE-2026-42498"
+          ],
+          "summary": "Apache Tomcat - WebSocket authentication header exposure",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-gcx9-497g-6cp6",
+          "aliases": [
+            "BIT-tomcat-2026-65182",
+            "CVE-2026-65182"
+          ],
+          "summary": "Apache Tomcat has an Improper Access Control, Incorrect Authorization vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-gx5v-xp9w-j4cg",
+          "aliases": [
+            "BIT-tomcat-2026-41284",
+            "CVE-2026-41284"
+          ],
+          "summary": "Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h3x4-894j-xpx5",
+          "aliases": [
+            "BIT-tomcat-2026-68525",
+            "CVE-2026-68525"
+          ],
+          "summary": "Apache Tomcat's FORM authentication process has an Incorrect Authorization vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h6fc-48rj-7qqh",
+          "aliases": [
+            "BIT-tomcat-2026-43512",
+            "CVE-2026-43512"
+          ],
+          "summary": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h792-v28v-ppgr",
+          "aliases": [
+            "BIT-tomcat-2026-53404",
+            "CVE-2026-53404"
+          ],
+          "summary": "Apache Tomcat's rewrite valve has an Always-Incorrect Control Flow Implementation vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-mgp5-rv84-w37q",
+          "aliases": [
+            "BIT-tomcat-2026-24734",
+            "CVE-2026-24734"
+          ],
+          "summary": "Apache Tomcat has an Improper Input Validation vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.52",
+            "11.0.18",
+            "9.0.115"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-mqg3-r7h5-24x4",
+          "aliases": [
+            "BIT-tomcat-2026-55276",
+            "CVE-2026-55276"
+          ],
+          "summary": "Apache Tomcat has an Always-Incorrect Control Flow Implementation vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-r29c-68gh-xp6x",
+          "aliases": [
+            "BIT-tomcat-2026-41293",
+            "CVE-2026-41293"
+          ],
+          "summary": "Apache Tomcat - HTTP/2 request headers not validated",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-rv64-5gf8-9qq8",
+          "aliases": [
+            "BIT-tomcat-2026-34483",
+            "CVE-2026-34483"
+          ],
+          "summary": "Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.54",
+            "11.0.21",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-x4m4-345f-5h5g",
+          "aliases": [
+            "BIT-tomcat-2026-34487",
+            "CVE-2026-34487"
+          ],
+          "summary": "Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.54",
+            "11.0.21",
+            "9.0.117"
+          ]
+        },
+        {
+          "package": "org.postgresql:postgresql",
+          "version": "42.7.8",
+          "id": "GHSA-98qh-xjc8-98pq",
+          "aliases": [
+            "BIT-postgresql-jdbc-driver-2026-42198",
+            "CVE-2026-42198"
+          ],
+          "summary": "pgjdbc: Unbounded PBKDF2 iterations in SCRAM authentication allows CPU exhaustion DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "42.7.11"
+          ]
+        },
+        {
+          "package": "org.postgresql:postgresql",
+          "version": "42.7.8",
+          "id": "GHSA-j92g-9f8w-j867",
+          "aliases": [
+            "BIT-postgresql-jdbc-driver-2026-54291",
+            "CVE-2026-54291"
+          ],
+          "summary": "PostgreSQL JDBC Driver: Silent channel-binding authentication downgrade via unsupported certificate algorithms",
+          "severity": "HIGH",
+          "fixed_in": [
+            "42.7.12"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot",
+          "version": "3.5.7",
+          "id": "GHSA-wwpq-f5c3-7hvx",
+          "aliases": [
+            "CVE-2026-40973"
+          ],
+          "summary": "Spring Boot accepts predictable temp directory without ownership verification",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.14",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.7",
+          "id": "GHSA-ggg2-9786-hwc8",
+          "aliases": [
+            "CVE-2026-41001"
+          ],
+          "summary": "Spring Boot: Predictable Temp Directory in Artemis Auto-configuration",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "3.5.15",
+            "4.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "3.5.7",
+          "id": "GHSA-8hfc-fq58-r658",
+          "aliases": [
+            "CVE-2026-22731"
+          ],
+          "summary": "Spring Boot has an Authentication Bypass under Actuator Health groups paths",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.4"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "3.5.7",
+          "id": "GHSA-mgvc-8q2h-5pgc",
+          "aliases": [
+            "CVE-2026-22733"
+          ],
+          "summary": "Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.4"
+          ]
+        },
+        {
+          "package": "org.springframework.data:spring-data-commons",
+          "version": "3.5.5",
+          "id": "GHSA-5m4m-73w9-8433",
+          "aliases": [
+            "CVE-2026-41721"
+          ],
+          "summary": "Spring Data Commons: Denial of Service via excessive memory allocation in projection binding",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework.data:spring-data-commons",
+          "version": "3.5.5",
+          "id": "GHSA-5vpf-xvv7-c8vh",
+          "aliases": [
+            "CVE-2026-41711"
+          ],
+          "summary": "Spring Data Commons: StackOverflowException when parsing Sort parameters (DoS)",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework.data:spring-data-commons",
+          "version": "3.5.5",
+          "id": "GHSA-88fw-v6x4-3f58",
+          "aliases": [
+            "CVE-2026-41695"
+          ],
+          "summary": "Spring Data: Unbounded property-path cache keyed by externally-supplied path string",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework.data:spring-data-commons",
+          "version": "3.5.5",
+          "id": "GHSA-9fw2-h3hf-293r",
+          "aliases": [
+            "CVE-2026-41716"
+          ],
+          "summary": "Spring Data Commons: Heap exhaustion from unbounded property-lookup cache retaining crafted string keys",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-core",
+          "version": "6.2.12",
+          "id": "GHSA-659m-px2c-25wj",
+          "aliases": [
+            "CVE-2026-41848"
+          ],
+          "summary": "Spring Framework Denial of Service via AntPathMatcher",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-9f52-rjqv-25qv",
+          "aliases": [
+            "CVE-2026-41852"
+          ],
+          "summary": "Spring Framework Arbitrary Method Invocation in SpEL Expressions",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-r5w3-xv2f-j59q",
+          "aliases": [
+            "CVE-2026-41850"
+          ],
+          "summary": "Spring Framework Algorithmic Denial of Service via SpEL Expressions",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-wxpp-56q6-5pcg",
+          "aliases": [
+            "CVE-2026-41851"
+          ],
+          "summary": "Spring Framework Denial of Service via Unbounded Cache in SpEL",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-web",
+          "version": "6.2.12",
+          "id": "GHSA-7m2p-62gw-p8qq",
+          "aliases": [
+            "CVE-2026-41854"
+          ],
+          "summary": "Spring Framework Server-Side Request Forgery via UriComponentsBuilder",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-3chg-m5w7-qfv5",
+          "aliases": [
+            "CVE-2026-41845"
+          ],
+          "summary": "Spring Framework Cross-site Scripting via JavaScriptUtils",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-4773-3jfm-qmx3",
+          "aliases": [
+            "CVE-2026-22737"
+          ],
+          "summary": "Spring Framework Improper Path Limitation with Script View Templates",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.17",
+            "7.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-6hcq-hmm3-jj3c",
+          "aliases": [
+            "CVE-2026-22735"
+          ],
+          "summary": "Spring MVC and WebFlux has Server Sent Event stream corruption",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.17",
+            "7.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-6p4f-wcwh-5vvm",
+          "aliases": [
+            "CVE-2026-22745"
+          ],
+          "summary": "Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.18",
+            "7.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-72pg-x5f8-j25j",
+          "aliases": [
+            "CVE-2026-41843"
+          ],
+          "summary": "Spring Framework Path Traversal via Versioned Static Resources in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-957g-f97v-vppc",
+          "aliases": [
+            "CVE-2026-41846"
+          ],
+          "summary": "Spring Framework Cross-site Scripting via JSP Form Tags",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-cjpg-rgq5-fr37",
+          "aliases": [
+            "CVE-2026-41853"
+          ],
+          "summary": "Spring Framework Multipart Request Smuggling in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-h3qp-gqrc-q736",
+          "aliases": [
+            "CVE-2026-41844"
+          ],
+          "summary": "Spring Framework Open Redirect in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-j9f9-w8pj-32f8",
+          "aliases": [
+            "CVE-2026-47890"
+          ],
+          "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-mq64-j8f9-9gcj",
+          "aliases": [
+            "CVE-2026-41841"
+          ],
+          "summary": "Spring Framework Information Disclosure via Static Resource Cache in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-pc63-qcmh-9cmg",
+          "aliases": [
+            "CVE-2026-47884"
+          ],
+          "summary": "Spring Framework Improper Path Limitation in XsltView",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-wg35-8jpf-2xv3",
+          "aliases": [
+            "CVE-2026-22741"
+          ],
+          "summary": "Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources.",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.18",
+            "7.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-x23c-287f-qqv5",
+          "aliases": [
+            "CVE-2026-41842"
+          ],
+          "summary": "Spring Framework Denial of Service via Versioned Resources in Spring MVC and WebFlux",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        }
+      ]
+    },
+    "aeria-backoffice": {
+      "ecosystem": "Maven",
+      "packages": 66,
+      "vulnerabilities": [
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-jhq6-gfmj-v8fx",
+          "aliases": [
+            "CVE-2026-10532"
+          ],
+          "summary": "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.34"
+          ]
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-p47f-322f-whfh",
+          "aliases": [
+            "CVE-2026-9828"
+          ],
+          "summary": "QOS.CH Sarl logback logback-core has a deserialization of untrusted data vulnerability",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.33"
+          ]
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "version": "1.5.20",
+          "id": "GHSA-qqpg-mvqg-649v",
+          "aliases": [
+            "CVE-2026-1225"
+          ],
+          "summary": "Logback allows an attacker to instantiate classes already present on the class path",
+          "severity": "LOW",
+          "fixed_in": [
+            "1.5.25"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-72hv-8253-57qq",
+          "aliases": [
+            "CVE-2026-18401"
+          ],
+          "summary": "jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.6",
+            "2.21.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-7hhh-6rmp-j9qf",
+          "aliases": [
+            "CVE-2026-89425"
+          ],
+          "summary": "jackson-core: UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilder growth (DoS)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-p6pp-m3f8-5c89",
+          "aliases": [
+            "CVE-2026-89407"
+          ],
+          "summary": " jackson-core: ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber()",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2",
+          "id": "GHSA-r7wm-3cxj-wff9",
+          "aliases": [
+            "CVE-2026-68494"
+          ],
+          "summary": "jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-3pjw-73gf-8qr5",
+          "aliases": [
+            "CVE-2026-59888"
+          ],
+          "summary": "jackson-databind: @JsonIgnore on a Record property is bypassed with a PropertyNamingStrategy",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-5gvw-p9qm-jgwh",
+          "aliases": [
+            "CVE-2026-59889"
+          ],
+          "summary": "jackson-databind: @JsonView bypassed for @JsonUnwrapped container properties on deserialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-5jmj-h7xm-6q6v",
+          "aliases": [
+            "CVE-2026-54515"
+          ],
+          "summary": "jackson-databind has case-insensitive deserialization bypasses per-property @JsonIgnoreProperties",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-cxp5-3px4-pw24",
+          "aliases": [
+            "CVE-2026-91777"
+          ],
+          "summary": "jackson-databind quadratic forward-reference completion ",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-gx83-3vf8-gh7j",
+          "aliases": [
+            "CVE-2026-83557"
+          ],
+          "summary": "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-hgj6-7826-r7m5",
+          "aliases": [
+            "CVE-2026-54514"
+          ],
+          "summary": "jackson-databind: InetSocketAddress deserialization triggers eager DNS resolution (SSRF)",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-j3rv-43j4-c7qm",
+          "aliases": [
+            "CVE-2026-54512"
+          ],
+          "summary": "jackson-databind has a PolymorphicTypeValidator bypass via generic type parameters that allows arbitrary class instantiation",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-q4xh-88c3-wmh7",
+          "aliases": [
+            "CVE-2026-68497"
+          ],
+          "summary": "jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-rmj7-2vxq-3g9f",
+          "aliases": [
+            "CVE-2026-54513"
+          ],
+          "summary": "jackson-databind has an array subtype allowlist bypass in BasicPolymorphicTypeValidator (allowIfSubTypeIsArray)",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.8",
+            "2.21.4",
+            "3.1.4"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-vvgp-rfg2-7rr6",
+          "aliases": [
+            "CVE-2026-77310"
+          ],
+          "summary": "jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.9",
+            "2.21.5",
+            "2.22.1"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-wjgm-6hv5-3cvf",
+          "aliases": [
+            "CVE-2026-19032"
+          ],
+          "summary": "jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.18.10",
+            "2.21.6",
+            "2.22.2"
+          ]
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2",
+          "id": "GHSA-wv8q-qhhj-9h54",
+          "aliases": [
+            "CVE-2026-91776"
+          ],
+          "summary": "jackson-databind retains every unknown raw type ID ",
+          "severity": "HIGH",
+          "fixed_in": [
+            "2.18.11",
+            "2.21.7",
+            "2.22.3"
+          ]
+        },
+        {
+          "package": "io.micrometer:micrometer-core",
+          "version": "1.15.5",
+          "id": "GHSA-g3pr-3p32-fp23",
+          "aliases": [
+            "CVE-2026-40984"
+          ],
+          "summary": "Micrometer HTTP server instrumentations DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "1.15.12",
+            "1.16.6"
+          ]
+        },
+        {
+          "package": "io.micrometer:micrometer-core",
+          "version": "1.15.5",
+          "id": "GHSA-w737-wx49-qj23",
+          "aliases": [
+            "CVE-2026-40983"
+          ],
+          "summary": "Micrometer gRPC server instrumentation DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "1.15.12",
+            "1.16.6"
+          ]
+        },
+        {
+          "package": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3",
+          "id": "GHSA-qv9r-c865-cp47",
+          "aliases": [
+            "CVE-2026-49844"
+          ],
+          "summary": "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "2.25.5",
+            "2.26.1"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-563x-q5rq-57qp",
+          "aliases": [
+            "BIT-tomcat-2026-24880",
+            "CVE-2026-24880"
+          ],
+          "summary": "Apache Tomcat has an HTTP Request/Response Smuggling vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.52",
+            "11.0.20",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5m62-pw8w-7w9f",
+          "aliases": [
+            "BIT-tomcat-2026-43515",
+            "CVE-2026-43515"
+          ],
+          "summary": "Apache Tomcat - Security constraints not correctly applied",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5mp6-jrq3-r938",
+          "aliases": [
+            "BIT-tomcat-2026-43513",
+            "CVE-2026-43513"
+          ],
+          "summary": "Apache Tomcat: LockOutRealm treats user names as case-sensitive",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-5v3h-fjv2-54fg",
+          "aliases": [
+            "BIT-tomcat-2026-55956",
+            "CVE-2026-55956"
+          ],
+          "summary": "Apache Tomcat has an Improper Authorization vulnerability",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9m3c-qcxr-9x87",
+          "aliases": [
+            "BIT-tomcat-2026-25854",
+            "CVE-2026-25854"
+          ],
+          "summary": "Apache Tomcat has an Open Redirect vulnerability",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.53",
+            "11.0.20",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9m89-8frq-c98c",
+          "aliases": [
+            "BIT-tomcat-2026-43514",
+            "CVE-2026-43514"
+          ],
+          "summary": "Apache Tomcat - AJP secret compared in non-constant time",
+          "severity": "LOW",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-9xv2-5v5q-p794",
+          "aliases": [
+            "BIT-tomcat-2026-65905",
+            "CVE-2026-65905"
+          ],
+          "summary": "Apache Tomcat's DIGEST authenticator has an Authentication Bypass by Capture-replay vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-fpj8-gq4v-p354",
+          "aliases": [
+            "BIT-tomcat-2025-66614",
+            "CVE-2025-66614"
+          ],
+          "summary": "Apache Tomcat - Client certificate verification bypass",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "10.1.50",
+            "11.0.15",
+            "9.0.113"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-fv25-8xcx-gqjc",
+          "aliases": [
+            "BIT-tomcat-2026-42498",
+            "CVE-2026-42498"
+          ],
+          "summary": "Apache Tomcat - WebSocket authentication header exposure",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-gcx9-497g-6cp6",
+          "aliases": [
+            "BIT-tomcat-2026-65182",
+            "CVE-2026-65182"
+          ],
+          "summary": "Apache Tomcat has an Improper Access Control, Incorrect Authorization vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-gx5v-xp9w-j4cg",
+          "aliases": [
+            "BIT-tomcat-2026-41284",
+            "CVE-2026-41284"
+          ],
+          "summary": "Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h3x4-894j-xpx5",
+          "aliases": [
+            "BIT-tomcat-2026-68525",
+            "CVE-2026-68525"
+          ],
+          "summary": "Apache Tomcat's FORM authentication process has an Incorrect Authorization vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.58",
+            "11.0.25",
+            "9.0.121"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h6fc-48rj-7qqh",
+          "aliases": [
+            "BIT-tomcat-2026-43512",
+            "CVE-2026-43512"
+          ],
+          "summary": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-h792-v28v-ppgr",
+          "aliases": [
+            "BIT-tomcat-2026-53404",
+            "CVE-2026-53404"
+          ],
+          "summary": "Apache Tomcat's rewrite valve has an Always-Incorrect Control Flow Implementation vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-mgp5-rv84-w37q",
+          "aliases": [
+            "BIT-tomcat-2026-24734",
+            "CVE-2026-24734"
+          ],
+          "summary": "Apache Tomcat has an Improper Input Validation vulnerability",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.52",
+            "11.0.18",
+            "9.0.115"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-mqg3-r7h5-24x4",
+          "aliases": [
+            "BIT-tomcat-2026-55276",
+            "CVE-2026-55276"
+          ],
+          "summary": "Apache Tomcat has an Always-Incorrect Control Flow Implementation vulnerability",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.56",
+            "11.0.23",
+            "9.0.119"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-r29c-68gh-xp6x",
+          "aliases": [
+            "BIT-tomcat-2026-41293",
+            "CVE-2026-41293"
+          ],
+          "summary": "Apache Tomcat - HTTP/2 request headers not validated",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "10.1.55",
+            "11.0.22",
+            "9.0.118"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-rv64-5gf8-9qq8",
+          "aliases": [
+            "BIT-tomcat-2026-34483",
+            "CVE-2026-34483"
+          ],
+          "summary": "Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.54",
+            "11.0.21",
+            "9.0.116"
+          ]
+        },
+        {
+          "package": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.48",
+          "id": "GHSA-x4m4-345f-5h5g",
+          "aliases": [
+            "BIT-tomcat-2026-34487",
+            "CVE-2026-34487"
+          ],
+          "summary": "Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File",
+          "severity": "HIGH",
+          "fixed_in": [
+            "10.1.54",
+            "11.0.21",
+            "9.0.117"
+          ]
+        },
+        {
+          "package": "org.postgresql:postgresql",
+          "version": "42.7.8",
+          "id": "GHSA-98qh-xjc8-98pq",
+          "aliases": [
+            "BIT-postgresql-jdbc-driver-2026-42198",
+            "CVE-2026-42198"
+          ],
+          "summary": "pgjdbc: Unbounded PBKDF2 iterations in SCRAM authentication allows CPU exhaustion DoS",
+          "severity": "HIGH",
+          "fixed_in": [
+            "42.7.11"
+          ]
+        },
+        {
+          "package": "org.postgresql:postgresql",
+          "version": "42.7.8",
+          "id": "GHSA-j92g-9f8w-j867",
+          "aliases": [
+            "BIT-postgresql-jdbc-driver-2026-54291",
+            "CVE-2026-54291"
+          ],
+          "summary": "PostgreSQL JDBC Driver: Silent channel-binding authentication downgrade via unsupported certificate algorithms",
+          "severity": "HIGH",
+          "fixed_in": [
+            "42.7.12"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot",
+          "version": "3.5.7",
+          "id": "GHSA-wwpq-f5c3-7hvx",
+          "aliases": [
+            "CVE-2026-40973"
+          ],
+          "summary": "Spring Boot accepts predictable temp directory without ownership verification",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.14",
+            "4.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.7",
+          "id": "GHSA-ggg2-9786-hwc8",
+          "aliases": [
+            "CVE-2026-41001"
+          ],
+          "summary": "Spring Boot: Predictable Temp Directory in Artemis Auto-configuration",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "3.5.15",
+            "4.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "3.5.7",
+          "id": "GHSA-8hfc-fq58-r658",
+          "aliases": [
+            "CVE-2026-22731"
+          ],
+          "summary": "Spring Boot has an Authentication Bypass under Actuator Health groups paths",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.4"
+          ]
+        },
+        {
+          "package": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "3.5.7",
+          "id": "GHSA-mgvc-8q2h-5pgc",
+          "aliases": [
+            "CVE-2026-22733"
+          ],
+          "summary": "Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints",
+          "severity": "HIGH",
+          "fixed_in": [
+            "3.5.12",
+            "4.0.4"
+          ]
+        },
+        {
+          "package": "org.springframework.security:spring-security-core",
+          "version": "6.5.6",
+          "id": "GHSA-vxf7-qj7q-83fh",
+          "aliases": [
+            "CVE-2026-22746"
+          ],
+          "summary": "Spring Security Vulnerable to User Attribute Enumeration when Using DaoAuthenticationProvider",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.5.10",
+            "7.0.5"
+          ]
+        },
+        {
+          "package": "org.springframework.security:spring-security-core",
+          "version": "6.5.6",
+          "id": "GHSA-x2wq-9x2f-fhj7",
+          "aliases": [
+            "CVE-2026-22751"
+          ],
+          "summary": "Spring Security Core has a TOCTOU race condition when One-Time Token login with JdbcOneTimeTokenService is configured",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.5.10",
+            "7.0.5"
+          ]
+        },
+        {
+          "package": "org.springframework.security:spring-security-web",
+          "version": "6.5.6",
+          "id": "GHSA-293q-567p-wmwq",
+          "aliases": [
+            "CVE-2026-47838"
+          ],
+          "summary": "Spring Security Vulnerable to Unauthorized User Impersonation when Using X.509 Client Certificates",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.5.11"
+          ]
+        },
+        {
+          "package": "org.springframework.security:spring-security-web",
+          "version": "6.5.6",
+          "id": "GHSA-mf92-479x-3373",
+          "aliases": [
+            "CVE-2026-22732"
+          ],
+          "summary": "Spring Security HTTP Headers Are not Written Under Some Conditions",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "6.5.9",
+            "7.0.4"
+          ]
+        },
+        {
+          "package": "org.springframework.security:spring-security-web",
+          "version": "6.5.6",
+          "id": "GHSA-x2r2-rvhq-2mqv",
+          "aliases": [
+            "CVE-2026-41706"
+          ],
+          "summary": "Spring Security: Open Redirect via Unvalidated Post-Login Redirect URL Stored in CookieRequestCache",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.5.11",
+            "7.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-core",
+          "version": "6.2.12",
+          "id": "GHSA-659m-px2c-25wj",
+          "aliases": [
+            "CVE-2026-41848"
+          ],
+          "summary": "Spring Framework Denial of Service via AntPathMatcher",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-9f52-rjqv-25qv",
+          "aliases": [
+            "CVE-2026-41852"
+          ],
+          "summary": "Spring Framework Arbitrary Method Invocation in SpEL Expressions",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-r5w3-xv2f-j59q",
+          "aliases": [
+            "CVE-2026-41850"
+          ],
+          "summary": "Spring Framework Algorithmic Denial of Service via SpEL Expressions",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-expression",
+          "version": "6.2.12",
+          "id": "GHSA-wxpp-56q6-5pcg",
+          "aliases": [
+            "CVE-2026-41851"
+          ],
+          "summary": "Spring Framework Denial of Service via Unbounded Cache in SpEL",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-web",
+          "version": "6.2.12",
+          "id": "GHSA-7m2p-62gw-p8qq",
+          "aliases": [
+            "CVE-2026-41854"
+          ],
+          "summary": "Spring Framework Server-Side Request Forgery via UriComponentsBuilder",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-3chg-m5w7-qfv5",
+          "aliases": [
+            "CVE-2026-41845"
+          ],
+          "summary": "Spring Framework Cross-site Scripting via JavaScriptUtils",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-4773-3jfm-qmx3",
+          "aliases": [
+            "CVE-2026-22737"
+          ],
+          "summary": "Spring Framework Improper Path Limitation with Script View Templates",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.17",
+            "7.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-6hcq-hmm3-jj3c",
+          "aliases": [
+            "CVE-2026-22735"
+          ],
+          "summary": "Spring MVC and WebFlux has Server Sent Event stream corruption",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.17",
+            "7.0.6"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-6p4f-wcwh-5vvm",
+          "aliases": [
+            "CVE-2026-22745"
+          ],
+          "summary": "Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.18",
+            "7.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-72pg-x5f8-j25j",
+          "aliases": [
+            "CVE-2026-41843"
+          ],
+          "summary": "Spring Framework Path Traversal via Versioned Static Resources in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-957g-f97v-vppc",
+          "aliases": [
+            "CVE-2026-41846"
+          ],
+          "summary": "Spring Framework Cross-site Scripting via JSP Form Tags",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-cjpg-rgq5-fr37",
+          "aliases": [
+            "CVE-2026-41853"
+          ],
+          "summary": "Spring Framework Multipart Request Smuggling in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-h3qp-gqrc-q736",
+          "aliases": [
+            "CVE-2026-41844"
+          ],
+          "summary": "Spring Framework Open Redirect in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-j9f9-w8pj-32f8",
+          "aliases": [
+            "CVE-2026-47890"
+          ],
+          "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-mq64-j8f9-9gcj",
+          "aliases": [
+            "CVE-2026-41841"
+          ],
+          "summary": "Spring Framework Information Disclosure via Static Resource Cache in Spring MVC and WebFlux",
+          "severity": "MODERATE",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-pc63-qcmh-9cmg",
+          "aliases": [
+            "CVE-2026-47884"
+          ],
+          "summary": "Spring Framework Improper Path Limitation in XsltView",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "7.0.9"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-wg35-8jpf-2xv3",
+          "aliases": [
+            "CVE-2026-22741"
+          ],
+          "summary": "Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources.",
+          "severity": "LOW",
+          "fixed_in": [
+            "6.2.18",
+            "7.0.7"
+          ]
+        },
+        {
+          "package": "org.springframework:spring-webmvc",
+          "version": "6.2.12",
+          "id": "GHSA-x23c-287f-qqv5",
+          "aliases": [
+            "CVE-2026-41842"
+          ],
+          "summary": "Spring Framework Denial of Service via Versioned Resources in Spring MVC and WebFlux",
+          "severity": "HIGH",
+          "fixed_in": [
+            "6.2.19",
+            "7.0.8"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-c9ph-gxww-7744",
+          "aliases": [
+            "CVE-2026-41901"
+          ],
+          "summary": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.5.RELEASE"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-r4v4-5mwr-2fwr",
+          "aliases": [
+            "CVE-2026-40477"
+          ],
+          "summary": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.4.RELEASE"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-xjw8-8c5c-9r79",
+          "aliases": [
+            "CVE-2026-40478"
+          ],
+          "summary": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.4.RELEASE"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf-spring6",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-c9ph-gxww-7744",
+          "aliases": [
+            "CVE-2026-41901"
+          ],
+          "summary": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.5.RELEASE"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf-spring6",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-r4v4-5mwr-2fwr",
+          "aliases": [
+            "CVE-2026-40477"
+          ],
+          "summary": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.4.RELEASE"
+          ]
+        },
+        {
+          "package": "org.thymeleaf:thymeleaf-spring6",
+          "version": "3.1.3.RELEASE",
+          "id": "GHSA-xjw8-8c5c-9r79",
+          "aliases": [
+            "CVE-2026-40478"
+          ],
+          "summary": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+          "severity": "CRITICAL",
+          "fixed_in": [
+            "3.1.4.RELEASE"
+          ]
+        }
+      ]
+    },
+    "aeria-forecast": {
+      "ecosystem": "PyPI",
+      "packages": 9,
+      "vulnerabilities": []
+    },
+    "aeria-data-pipeline": {
+      "ecosystem": "PyPI",
+      "packages": 8,
+      "vulnerabilities": []
+    }
+  }
+}

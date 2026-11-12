@@ -1,0 +1,69 @@
+<!--
+  Aeria - Wazuh decoders (Wazuh 4.x)
+  Install: copy to /var/ossec/etc/decoders/ on the manager (see wazuh/README.md).
+
+  Sources:
+    - aeria-backoffice (module 4): "AERIA-SECURITY event=<e> user=<u> ip=<ip> [reason=<r>] [method=<m> path=<p>]"
+    - aeria-iot-sensors (module 1): "IngestionService : Rejected reading from <sensor>: [<errors>]"
+                                     "IngestionService : Malformed message on <topic>: <error>"
+    - Mosquitto 2.x broker:          "<epoch>: New connection from <ip>:<port> on port <port>."
+                                     "<epoch>: Client <id> disconnected, not authorised."
+-->
+
+<!-- ======================================================= back-office security events -->
+<decoder name="aeria-security">
+  <prematch>AERIA-SECURITY event=</prematch>
+</decoder>
+
+<!-- sibling decoders (same name): each one adds its own fields -->
+<decoder name="aeria-security-fields">
+  <parent>aeria-security</parent>
+  <regex type="pcre2">event=(\S+) user=(\S+) ip=(\S+)</regex>
+  <order>aeria.event, srcuser, srcip</order>
+</decoder>
+
+<decoder name="aeria-security-fields">
+  <parent>aeria-security</parent>
+  <regex type="pcre2">reason=(\S+)</regex>
+  <order>aeria.reason</order>
+</decoder>
+
+<decoder name="aeria-security-fields">
+  <parent>aeria-security</parent>
+  <regex type="pcre2">method=(\S+) path=(\S+)</regex>
+  <order>aeria.method, url</order>
+</decoder>
+
+<!-- ======================================================= sensor ingestion (data integrity) -->
+<decoder name="aeria-ingest">
+  <prematch type="pcre2">IngestionService\s+: (?:Rejected reading|Malformed message)</prematch>
+</decoder>
+
+<decoder name="aeria-ingest-fields">
+  <parent>aeria-ingest</parent>
+  <regex type="pcre2">Rejected reading from (\S+): \[(.*)\]</regex>
+  <order>aeria.sensor, aeria.errors</order>
+</decoder>
+
+<decoder name="aeria-ingest-fields">
+  <parent>aeria-ingest</parent>
+  <regex type="pcre2">Malformed message on (\S+): (.*)</regex>
+  <order>aeria.topic, aeria.errors</order>
+</decoder>
+
+<!-- ======================================================= MQTT broker -->
+<decoder name="aeria-mosquitto">
+  <prematch type="pcre2">^\d{9,11}: (?:New connection from|Client \S+ disconnected, not authorised)</prematch>
+</decoder>
+
+<decoder name="aeria-mosquitto-fields">
+  <parent>aeria-mosquitto</parent>
+  <regex type="pcre2">New connection from (\S+):(\d+) on port (\d+)</regex>
+  <order>srcip, srcport, dstport</order>
+</decoder>
+
+<decoder name="aeria-mosquitto-fields">
+  <parent>aeria-mosquitto</parent>
+  <regex type="pcre2">Client (\S+) disconnected, not authorised</regex>
+  <order>aeria.client</order>
+</decoder>

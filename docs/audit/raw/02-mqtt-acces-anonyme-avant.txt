@@ -1,0 +1,35 @@
+# Test d'accès anonyme au broker MQTT (depuis le réseau Docker aeria_default), 2026-11-12T20:21:53Z
+## 1. Publication anonyme dans l'arborescence capteurs (topic de test, aucun consommateur)
+Client null sending CONNECT
+Client null received CONNACK (0)
+Client null sending PUBLISH (d0, q1, r0, m1, 'aeria/sensors/AUDIT-TEST/measurements', ... (35 bytes))
+Client null received PUBACK (Mid: 1, RC:0)
+Client null sending DISCONNECT
+exit=0
+## 2. Publication anonyme hors de l'arborescence autorisée (ACL)
+Client null sending CONNECT
+Client null received CONNACK (0)
+Client null sending PUBLISH (d0, q1, r0, m1, 'admin/commands', ... (4 bytes))
+Client null received PUBACK (Mid: 1, RC:0)
+Client null sending DISCONNECT
+exit=0
+## 3. Abonnement anonyme à toute l'arborescence capteurs (5 s)
+Client null sending CONNECT
+Timed out
+Client null received CONNACK (0)
+Client null sending SUBSCRIBE (Mid: 1, Topic: aeria/sensors/#, QoS: 0, Options: 0x00)
+Client null received SUBACK
+Subscribed (mid: 1): 0
+Client null sending DISCONNECT
+1794514899: Client <unknown> closed its connection.
+1794514899: New connection from 172.21.0.4:44398 on port 1883.
+1794514899: Client <unknown> disconnected due to protocol error.
+1794514924: New connection from 127.0.0.1:50212 on port 1883.
+1794514924: New client connected from 127.0.0.1:50212 as auto-A316BFC7-14EC-CD26-FBDC-FD8C8024A726 (p2, c1, k60).
+1794514924: Client auto-A316BFC7-14EC-CD26-FBDC-FD8C8024A726 disconnected.
+1794514925: New connection from 127.0.0.1:50218 on port 1883.
+1794514925: New client connected from 127.0.0.1:50218 as auto-BB147101-0FF3-0435-2A2E-F2E0CC823CF7 (p2, c1, k60).
+1794514925: Client auto-BB147101-0FF3-0435-2A2E-F2E0CC823CF7 disconnected.
+1794514926: New connection from 127.0.0.1:50222 on port 1883.
+1794514926: New client connected from 127.0.0.1:50222 as auto-970CD34E-EB20-224F-1AD0-725AFD958CE7 (p2, c1, k60).
+1794514931: Client auto-970CD34E-EB20-224F-1AD0-725AFD958CE7 disconnected.

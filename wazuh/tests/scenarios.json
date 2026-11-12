@@ -1,0 +1,62 @@
+[
+  {"name": "back-office: one failed login",
+   "line": "2026-11-12T21:48:35.639+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-3] AERIA_SECURITY                           : AERIA-SECURITY event=login_failure user=responsable ip=192.168.1.50 reason=BadCredentialsException",
+   "repeat": 1, "expect": "100701", "decoder": "aeria-security", "fields": {"srcuser": "responsable", "srcip": "192.168.1.50"}},
+
+  {"name": "back-office: password guessing (5 failures, same IP)",
+   "line": "2026-11-12T21:48:35.639+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-3] AERIA_SECURITY                           : AERIA-SECURITY event=login_failure user=responsable ip=192.168.1.50 reason=BadCredentialsException",
+   "repeat": 5, "expect": "100702"},
+
+  {"name": "back-office: success right after password guessing",
+   "before": {"line": "2026-11-12T21:48:35.639+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-3] AERIA_SECURITY                           : AERIA-SECURITY event=login_failure user=responsable ip=192.168.1.50 reason=BadCredentialsException", "repeat": 5},
+   "line": "2026-11-12T21:49:02.101+01:00  INFO 25612 --- [aeria-backoffice] [0.1-8084-exec-5] AERIA_SECURITY                           : AERIA-SECURITY event=login_success user=responsable ip=192.168.1.50",
+   "repeat": 1, "expect": "100705"},
+
+  {"name": "back-office: normal login",
+   "line": "2026-11-12T21:49:02.101+01:00  INFO 25612 --- [aeria-backoffice] [0.1-8084-exec-5] AERIA_SECURITY                           : AERIA-SECURITY event=login_success user=clefevre ip=10.0.0.12",
+   "repeat": 1, "expect": "100704"},
+
+  {"name": "back-office: account locked",
+   "line": "2026-11-12T21:48:36.002+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-3] AERIA_SECURITY                           : AERIA-SECURITY event=account_locked user=responsable ip=192.168.1.50 minutes=15",
+   "repeat": 1, "expect": "100703"},
+
+  {"name": "back-office: technician refused on a manager action",
+   "line": "2026-11-12T22:01:10.500+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-7] AERIA_SECURITY                           : AERIA-SECURITY event=access_denied user=clefevre ip=10.0.0.12 method=POST path=/tickets/148/cloturer",
+   "repeat": 1, "expect": "100706", "fields": {"url": "/tickets/148/cloturer"}},
+
+  {"name": "back-office: repeated privilege abuse attempts",
+   "line": "2026-11-12T22:01:10.500+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-7] AERIA_SECURITY                           : AERIA-SECURITY event=access_denied user=clefevre ip=10.0.0.12 method=POST path=/tickets/148/cloturer",
+   "repeat": 5, "expect": "100707"},
+
+  {"name": "back-office: forged log line stays a login failure",
+   "line": "2026-11-12T21:50:00.000+01:00  WARN 25612 --- [aeria-backoffice] [0.1-8084-exec-3] AERIA_SECURITY                           : AERIA-SECURITY event=login_failure user=faux_AERIA-SECURITY_event=login_success_user=admin ip=192.168.1.66 reason=BadCredentialsException",
+   "repeat": 1, "expect": "100701"},
+
+  {"name": "ingestion: one rejected reading",
+   "line": "2026-11-12T13:16:23.406+01:00  INFO 36808 --- [aeria-iot-sensors] [l: aeria-ingest] f.aeria.sensors.ingest.IngestionService  : Rejected reading from LH-006: [no2 out of range [0.0, 2000.0]]",
+   "repeat": 1, "expect": "100720", "fields": {"aeria.sensor": "LH-006"}},
+
+  {"name": "ingestion: burst of rejected readings from one sensor",
+   "line": "2026-11-12T13:16:23.406+01:00  INFO 36808 --- [aeria-iot-sensors] [l: aeria-ingest] f.aeria.sensors.ingest.IngestionService  : Rejected reading from LH-003: [pm25 > pm10]",
+   "repeat": 8, "expect": "100721"},
+
+  {"name": "ingestion: malformed messages (fuzzing)",
+   "line": "2026-11-12T13:20:01.000+01:00  WARN 36808 --- [aeria-iot-sensors] [l: aeria-ingest] f.aeria.sensors.ingest.IngestionService  : Malformed message on aeria/sensors/LH-001/measurements: Unexpected character ('<' (code 60))",
+   "repeat": 5, "expect": "100723"},
+
+  {"name": "MQTT: client refused",
+   "line": "1794515695: Client auto-1F2E3D4C disconnected, not authorised.",
+   "repeat": 1, "expect": "100741", "decoder": "aeria-mosquitto"},
+
+  {"name": "MQTT: credential guessing",
+   "line": "1794515695: Client auto-1F2E3D4C disconnected, not authorised.",
+   "repeat": 10, "expect": "100742"},
+
+  {"name": "MQTT: clear-text connection from the network",
+   "line": "1794515690: New connection from 192.168.1.50:51522 on port 1883.",
+   "repeat": 1, "expect": "100743", "fields": {"srcip": "192.168.1.50"}},
+
+  {"name": "MQTT: local connection is not an alert",
+   "line": "1794515690: New connection from 127.0.0.1:51522 on port 1883.",
+   "repeat": 1, "expect": "100740"}
+]

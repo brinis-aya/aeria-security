@@ -1,0 +1,18 @@
+# Nmap 7.95 scan initiated Thu Nov 12 20:21:16 2026 as: nmap -sV -Pn -p- --script mqtt-subscribe,banner -oN - 172.21.0.2 172.21.0.3
+Nmap scan report for aeria-mosquitto-1.aeria_default (172.21.0.2)
+Host is up (0.0000080s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+1883/tcp open  mqtt
+|_mqtt-subscribe: Failed to receive control packet from server.
+MAC Address: 52:05:64:89:C6:29 (Unknown)
+
+Nmap scan report for aeria-postgres-1.aeria_default (172.21.0.3)
+Host is up (0.0000080s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT     STATE SERVICE    VERSION
+5432/tcp open  postgresql PostgreSQL DB 9.6.0 or later
+MAC Address: 4A:C4:AF:E4:59:A8 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 12 20:21:39 2026 -- 2 IP addresses (2 hosts up) scanned in 23.01 seconds

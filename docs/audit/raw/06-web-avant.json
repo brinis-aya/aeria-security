@@ -1,0 +1,72 @@
+{
+  "collected_at": "2026-11-12T20:33:48+00:00",
+  "backoffice": {
+    "base": "http://127.0.0.1:8084",
+    "login_page": {
+      "status": 200,
+      "missing": [
+        "Referrer-Policy",
+        "Strict-Transport-Security",
+        "Permissions-Policy"
+      ],
+      "present": {
+        "Content-Security-Policy": "default-src 'self'; style-src 'self'; img-src 'self' data:; frame-ancestors 'none'; form-action 'self'",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "server_banner": null,
+      "tls": false,
+      "cookies": [
+        {
+          "cookie": "JSESSIONID",
+          "httponly": true,
+          "secure": false,
+          "samesite": "lax"
+        }
+      ]
+    },
+    "anonymous_root": 302,
+    "anonymous_api": 401,
+    "actuator": {
+      "/actuator": 302,
+      "/actuator/health": 200,
+      "/actuator/env": 302,
+      "/actuator/heapdump": 302
+    },
+    "error_page": {
+      "status": 302,
+      "stack_trace_leak": false
+    },
+    "bruteforce": {
+      "attempts": 20,
+      "all_rejected": true,
+      "median_response_s": 0.072,
+      "max_response_s": 0.075,
+      "lockout_or_throttling_observed": false
+    }
+  },
+  "forecast": {
+    "base": "http://127.0.0.1:8083",
+    "health": {
+      "status": 200,
+      "missing": [
+        "Content-Security-Policy",
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "Referrer-Policy",
+        "Strict-Transport-Security",
+        "Permissions-Policy"
+      ],
+      "present": {},
+      "server_banner": "uvicorn",
+      "tls": false
+    },
+    "openapi_docs_public": true,
+    "model_card_public": true,
+    "rate_limit_on_50_requests": false,
+    "validation_error": {
+      "status": 422,
+      "leaks_trace": false
+    }
+  }
+}
