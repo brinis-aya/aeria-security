@@ -156,11 +156,16 @@ Les écarts principaux :
 - chiffrement de la flash des capteurs (8.24) ;
 - formation (6.3).
 
-## 6. Formation : MOOC SecNumacadémie (ANSSI)
+## 6. Formation et certifications
 
-Le MOOC de l'ANSSI (4 modules : panorama de la SSI, sécurité de l'authentification, sécurité sur Internet,
-sécurité du poste de travail et nomadisme) est suivi par l'auteur. L'attestation de réussite est à
-ajouter ici : `docs/attestation-secnumacademie.pdf`.
+| Certification | Organisme | Volume | Statut |
+|---|---|---|---|
+| SecNumacadémie | ANSSI | ~20 h | en cours |
+| Introduction to Cybersecurity | Cisco Networking Academy | ~6 h | en cours |
+
+Le MOOC SecNumacadémie de l'ANSSI compte 4 modules : panorama de la SSI, sécurité de l'authentification,
+sécurité sur Internet, sécurité du poste de travail et nomadisme. Les attestations seront ajoutées dans
+`docs/` une fois obtenues.
 
 Le module 1 (panorama) recoupe directement ce travail : gestion des risques, défense en profondeur. Le
 module 2 (authentification) aussi : mots de passe, verrouillage, MFA.

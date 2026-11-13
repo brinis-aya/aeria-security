@@ -27,7 +27,23 @@ def docker(*args: str, stdin: str | None = None) -> str:
     return out.stdout
 
 
+def wait_ready(container: str, timeout: int = 240) -> None:
+    """A freshly started manager needs a minute or two before wazuh-logtest answers."""
+    import time
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        try:
+            if "Phase 1" in docker("exec", "-i", container, "/var/ossec/bin/wazuh-logtest", stdin="ping\n"):
+                return
+        except RuntimeError:
+            pass
+        print("waiting for the Wazuh manager to start...", flush=True)
+        time.sleep(10)
+    raise RuntimeError(f"wazuh-logtest did not answer within {timeout} s in {container}")
+
+
 def install(container: str) -> None:
+    wait_ready(container)
     docker("cp", str(ROOT / "wazuh/decoders/aeria_decoders.xml"), f"{container}:/var/ossec/etc/decoders/aeria_decoders.xml")
     docker("cp", str(ROOT / "wazuh/rules/aeria_rules.xml"), f"{container}:/var/ossec/etc/rules/aeria_rules.xml")
     docker("exec", container, "chown", "wazuh:wazuh", "/var/ossec/etc/decoders/aeria_decoders.xml",

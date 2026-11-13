@@ -55,19 +55,42 @@ guessing, clear-text MQTT from the network. Tested in CI against the official `w
 [`docs/iso27001-soa.md`](docs/iso27001-soa.md): 35 Annex A controls, 19 applied, 13 partial, 3 planned. Each
 one is linked to evidence in the repositories or to a measure of the treatment plan.
 
-## Reproduce
+## Test it yourself
+
+Requirements: Docker and Python 3.10+ (`pip install requests` for the dependency scan).
+
+**1. The Wazuh rules against a real Wazuh manager** (official image, about 1 GB, disposable):
 
 ```bash
-WORKSTATION_IP=<your own LAN address> bash scripts/run_audit.sh      # scan only what you own
-python scripts/test_wazuh_rules.py --container <disposable wazuh manager>
-python scripts/osv_scan.py --maven module=deps.txt --pypi module=requirements.txt --out osv.json
-python scripts/risk_matrix.py
+docker run -d --name wazuh-test wazuh/wazuh-manager:4.14.9
+python scripts/test_wazuh_rules.py --container wazuh-test      # waits for the manager, then 15/15 scenarios pass
+docker rm -f wazuh-test
 ```
+
+Each scenario replays real log lines (password guessing, login right after guessing, privilege abuse,
+forged sensor data, MQTT credential guessing…) and checks the rule and level that fire.
+
+**2. The known vulnerabilities of a module's dependencies** (osv.dev):
+
+```bash
+git clone https://github.com/brinis-aya/aeria-forecast ../aeria-forecast
+python scripts/osv_scan.py --pypi aeria-forecast=../aeria-forecast/requirements.txt --out osv.json
+```
+
+For a Java module, first list its dependencies: `mvn dependency:list -DincludeScope=runtime
+-DoutputFile=deps.txt`, then `--maven aeria-backoffice=deps.txt`.
+
+**3. The fixes in the other modules**: MQTT production config test
+(`aeria-iot-sensors/mosquitto/test-prod-acl.sh`), back-office lockout and security-log tests
+(`aeria-backoffice`, `SecuriteConnexionTest`), API headers test (`aeria-forecast`, `test_security_headers`).
+
+**4. The full audit** (nmap, Varys) needs a running Aeria platform and an nmap container; scan only machines
+you own: `WORKSTATION_IP=<your own LAN address> bash scripts/run_audit.sh`. The outputs of the original
+audit are in [`docs/audit/raw`](docs/audit/raw).
 
 ## Report
 
-French report: [`docs/rapport.md`](docs/rapport.md). The ANSSI SecNumacadémie MOOC certificate is to be added
-by the author (see the report).
+French report: [`docs/rapport.md`](docs/rapport.md).
 
 ## License
 
