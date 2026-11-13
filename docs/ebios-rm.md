@@ -174,14 +174,14 @@ Techniques MITRE ATT&CK (ICS et Enterprise). Vraisemblance avant et après trait
 | M3 | Verrouillage du compte après 5 échecs en 15 min, message générique | R3 | **fait** | test `SecuriteConnexionTest`, contrôle web « après » |
 | M4 | Journal de sécurité normalisé et neutralisation de l'injection dans les journaux | R2, R3 | **fait** | test f7 ; journaux réels |
 | M5 | Règles Wazuh : force brute, connexion après force brute, abus de droits, injection MQTT, rafales de rejets | R1, R2, R3 | **fait** | 15/15 scénarios sous `wazuh-logtest` 4.14.9 |
-| M6 | Mise à jour Spring Boot 3.5.7 → 3.5.16, versions corrigées de Tomcat, Jackson et pgjdbc, analyse OSV hebdomadaire en CI ; migration Spring Boot 4 à planifier | R3, R4 | **fait** (76 → 3 vulnérabilités) | `audit.md` §5 |
+| M6 | Mise à jour Spring Boot 3.5.7 → 3.5.16, versions corrigées de Tomcat, Jackson, pgjdbc et log4j, analyse OSV hebdomadaire en CI ; migration Spring Boot 4 à planifier | R3, R4 | **fait** (76 → 2 vulnérabilités) | `audit.md` §5 |
 | M7 | En-têtes de sécurité et masquage de bannière sur l'API de prévision | R3 | **fait** | contrôle web « après » |
 | M8 | Contrôle de vraisemblance croisé capteur ↔ stations de référence (écart persistant → ticket « dérive ») | **R1** | partiel : étalonnage RG10 en place ; contrôle continu planifié | module 4, RG10 |
 | M9 | ESP32 : secure boot et chiffrement de la flash, identifiants uniques par capteur | R1 | planifié | — |
 | M10 | Sauvegarde quotidienne chiffrée hors site des bases, test de restauration trimestriel | R3 | planifié | — |
 | M11 | MFA pour le rôle responsable | R3 | planifié | — |
 | M12 | Boîtiers anti-vandalisme, pose à plus de 3 m, détection de silence (RG14, déjà en place) | R5 | partiel | module 4 |
-| M13 | Actions GitHub épinglées par empreinte SHA, Dependabot | R4 | planifié | — |
+| M13 | Actions GitHub épinglées par empreinte SHA (fait) ; Dependabot (planifié) | R4 | **fait** en partie | fichiers `.github/workflows` des 8 dépôts |
 
 ### Risques résiduels
 

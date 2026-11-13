@@ -20,7 +20,7 @@ Statuts :
 | 5.15 | Contrôle d'accès | Appliquée | deux rôles, contrôle d'appartenance des interventions (module 4, RG16), API authentifiée |
 | 5.17 | Informations d'authentification | Appliquée | BCrypt ; verrouillage après 5 échecs (M3) ; un compte MQTT par capteur (M1) |
 | 5.19 | Sécurité dans les relations fournisseurs | Partielle | cartographie de l'écosystème (EBIOS, atelier 3) ; exigences contractuelles envers les mairies à définir |
-| 5.21 | Sécurité dans la chaîne d'approvisionnement des TIC | Partielle | versions épinglées ; analyse OSV (M6) ; actions épinglées par SHA planifiées (M13) |
+| 5.21 | Sécurité dans la chaîne d'approvisionnement des TIC | Appliquée | versions épinglées ; analyse OSV hebdomadaire (M6) ; actions GitHub épinglées par empreinte SHA (M13) |
 | 5.23 | Sécurité des services en nuage | Partielle | GitHub : dépôts publics sans secret ; secret scanning et Dependabot à activer |
 | 5.24 | Planification de la gestion des incidents | Partielle | règles Wazuh qualifiées par niveau ; procédure de réponse décrite dans le rapport |
 | 5.25 | Évaluation des événements de sécurité | Appliquée | règles corrélées (force brute puis succès : niveau 12) ; 15 scénarios testés |
@@ -50,5 +50,5 @@ Statuts :
 | 8.33 | Informations de test | Appliquée | jeux de démonstration synthétiques, aucune donnée personnelle réelle |
 | 8.34 | Protection des SI en cours d'audit | Appliquée | périmètre limité à la plateforme et au poste de l'auteur ; manager Wazuh jetable ; aucun scan du réseau domestique |
 
-**Bilan** : 35 mesures examinées, dont 19 appliquées, 13 partielles et 3 planifiées. Les mesures partielles et
+**Bilan** : 35 mesures examinées, dont 20 appliquées, 12 partielles et 3 planifiées. Les mesures partielles et
 planifiées correspondent aux mesures M2 et M8 à M13 du PACS.

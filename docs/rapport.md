@@ -83,7 +83,7 @@ premier incident de maintenance observé dans le module 4 : les capteurs muets.
 | F1 : back-office ouvert sur le Wi-Fi, en HTTP | élevée | écoute sur 127.0.0.1 par défaut (module 4) | nmap : 8084 *closed* |
 | F2 : MQTT anonyme, usurpation d'identité de capteur possible | élevée | configuration de production : comptes, ACL, TLS (module 1) | 4/4 tests dans le broker |
 | F3 : pas de limite de tentatives de connexion | moyenne | verrouillage après 5 échecs (module 4) | bon mot de passe refusé après 20 échecs |
-| F4 : 69 et 76 vulnérabilités connues dans les dépendances Java | élevée | Spring Boot 3.5.16 et versions corrigées de Tomcat, Jackson et du pilote PostgreSQL (modules 1 et 4) | OSV : 3 restantes par module, dont 2 sans objet ici (`audit.md` §5) |
+| F4 : 69 et 76 vulnérabilités connues dans les dépendances Java | élevée | Spring Boot 3.5.16 et versions corrigées de Tomcat, Jackson et du pilote PostgreSQL (modules 1 et 4) | OSV : 2 restantes par module, sans objet ici (`audit.md` §5) |
 | F5 : API sans en-têtes de sécurité, bannière visible | faible | middleware d'en-têtes (module 3) | contrôle web |
 | F7 : aucun journal de sécurité | moyenne | journal `AERIA-SECURITY` normalisé (module 4) | 5 nouveaux tests ; journaux réels |
 
@@ -144,8 +144,8 @@ les scénarios à chaque modification.
 
 | Statut | Nombre |
 |---|---|
-| Appliquées, avec une preuve dans les dépôts | 19 |
-| Partielles | 13 |
+| Appliquées, avec une preuve dans les dépôts | 20 |
+| Partielles | 12 |
 | Planifiées | 3 |
 
 Les écarts principaux :

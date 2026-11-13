@@ -25,7 +25,7 @@ passe a visé le compte de démonstration. Les règles Wazuh ont été chargées
 | F1 | Back-office à l'écoute sur toutes les interfaces, en HTTP : identifiants et cookie de session circulent en clair sur le Wi-Fi | **élevée** | nmap 03, netstat | **corrigé** : écoute sur la boucle locale, vérifiée par nmap 08 ; HTTPS par proxy à mettre en place |
 | F2 | Broker MQTT en accès anonyme : n'importe qui peut publier des mesures au nom de n'importe quel capteur | **élevée** | test 02 | **corrigé** pour la production : `mosquitto.prod.conf`, test 07 réussi à 4/4 |
 | F3 | Aucune protection contre la devinette de mot de passe (20 essais, ni blocage ni ralentissement) | moyenne | web 06 | **corrigé** : verrouillage après 5 échecs, vérifié par web 09 |
-| F4 | Dépendances Java vieilles d'un an : 69 (module 1) et 76 (module 4) vulnérabilités connues, dont des critiques (Tomcat, Thymeleaf, Spring Security) | **élevée** | OSV 11 | **corrigé** : 3 restantes, non exploitables ici (§5) |
+| F4 | Dépendances Java vieilles d'un an : 69 (module 1) et 76 (module 4) vulnérabilités connues, dont des critiques (Tomcat, Thymeleaf, Spring Security) | **élevée** | OSV 11 | **corrigé** : 2 restantes, non exploitables ici (§5) |
 | F5 | API de prévision sans en-têtes de sécurité, bannière `uvicorn` | faible | web 06 | **corrigé** (web 09) |
 | F6 | Back-office sans `Referrer-Policy` ni `Permissions-Policy` | faible | web 06 | **corrigé** |
 | F7 | Aucun événement de sécurité journalisé : Wazuh n'aurait rien à détecter | moyenne | revue de code | **corrigé** : journal `AERIA-SECURITY` et règles Wazuh, 15/15 |
@@ -110,17 +110,17 @@ back-office sur 8084 n'a été repéré que par nmap. Il faudrait l'élargir à 
 
 ## 5. Dépendances (osv.dev)
 
-| Module | Paquets | Avant (Spring Boot 3.5.7) | Spring Boot 3.5.16 | Final (+ Tomcat 10.1.61, Jackson 2.21.8, pgjdbc 42.7.14) |
+| Module | Paquets | Avant (Spring Boot 3.5.7) | Spring Boot 3.5.16 | Final (+ Tomcat 10.1.61, Jackson 2.21.8, pgjdbc 42.7.14, log4j 2.25.5) |
 |---|---|---|---|---|
-| aeria-iot-sensors | 77 Maven | 69 (dont 9 critiques) | 22 (7 critiques) | **3** |
-| aeria-backoffice | 66 Maven | 76 (dont 16 critiques) | 22 (7 critiques) | **3** |
+| aeria-iot-sensors | 77 Maven | 69 (dont 9 critiques) | 22 (7 critiques) | **2** |
+| aeria-backoffice | 66 Maven | 76 (dont 16 critiques) | 22 (7 critiques) | **2** |
 | aeria-forecast | 9 PyPI | 0 | — | 0 |
 | aeria-data-pipeline | 8 PyPI | 0 | — | 0 |
 
 La mise à jour de Spring Boot n'a pas suffi. Elle laissait des failles critiques de Tomcat (contournement
 d'authentification, contrôle d'accès), corrigées seulement dans des versions plus récentes que celles du BOM
 Spring Boot. Elles ont été forcées par les propriétés Maven `tomcat.version`, `jackson-bom.version` et
-`postgresql.version`. Les 24 tests du back-office et les 16 du module 1 passent avec ces versions.
+`postgresql.version` et `log4j2.version`. Les 24 tests du back-office et les 16 du module 1 passent avec ces versions.
 
 **Vulnérabilités résiduelles** (rapports : [`11-osv-dependances.json`](audit/raw/11-osv-dependances.json),
 [`12-osv-dependances-apres.json`](audit/raw/12-osv-dependances-apres.json),
@@ -130,7 +130,6 @@ Spring Boot. Elles ont été forcées par les propriétés Maven `tomcat.version
 |---|---|---|
 | GHSA-pc63-qcmh-9cmg (critique) | spring-webmvc 6.2.19 : `XsltView` | aucune vue XSLT : rendu Thymeleaf et JSON uniquement |
 | GHSA-j9f9-w8pj-32f8 (critique) | spring-webmvc 6.2.19 : fragments en *Server-Sent Events* | aucun flux SSE |
-| GHSA-qv9r-c865-cp47 (modéré) | log4j-api 2.24.3 | API seule, la journalisation passe par Logback ; à forcer en 2.25.5 lors de la prochaine mise à jour |
 
 Les deux avis critiques ne sont corrigés qu'en Spring Framework 7 (Spring Boot 4). La migration est inscrite au
 PACS. L'analyse OSV tourne chaque semaine en CI pour signaler toute nouvelle vulnérabilité.
